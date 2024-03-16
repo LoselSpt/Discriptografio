@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg" sizes="8x8" href="assets/eye-thin.svg  ">
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    
+    <title>Discroptogrifio</title>
+
+
+
+
+</head>
+<body>
+    <header class="cabecalho">
+        <a href="https://loselportifolio.vercel.app/index.html" class="cabecalho">
+        <img  src="assets/black-hole.svg"></a>
+        <p>Descriptografio</p>
+    </header>
+    <main>
+        <section class="input__box"> 
+            <form>
+                <textarea id="input-textarea" placeholder="Digite seu texto"></textarea>
+            </form>
+            <div class="warning__box">
+                <img src="assets/morcegu.gif">
+                <p>Apenas letras minúsculas e sem acento.</p>
+            </div>
+            <div class="buttons__box">
+                <button id="encode-btn">Criptografar</button>
+                <button id="decode-btn">Descriptografrar</button>
+            </div>
+        </section>
+        <section class="output_box">
+            <form>
+                <div class="img__box">
+                    <img src="assets/eye.gif">
+                    <div class="mesage__box">
+                        <h3>Nenhuma mensagem encontrada.</h3>
+                        <p>Digite um texto<br> Que <br>Você deseja criptografar ou descriptografrar.</p>
+                    </div>
+                </div>
+                <textarea id="output-textarea" readonly></textarea>
+            </form>
+            <div class="copy__btn__box">
+                <button id="copy-btn">Copiar</button>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer >
+        Desenvolvido por <a  href="https://github.com/LoselSpt" target="_blank">Losel</a>
+
+        <audio src="assets/timeblur.mp3" preload="auto" autoplay loop></audio>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
