@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Six+Caps&display=swap');
 
 :root {
-    --cor-primaria: #050001; 
-    --cor-secundaria: #3D0000;
-    --cor-terciaria: #950101;
-    --cor-quarternaria: #FF0000; 
+    --cor-primaria: #2E7D6B; 
+    --cor-secundaria: #1E4E5F;
+    --cor-terciaria: #F9FAFB;
+    --cor-quarternaria: #D1D5DB; 
     --fonte1:'Inter', sans-serif;
     --fonte2: 'Six Caps', sans-serif;
 }
@@ -342,3 +342,4 @@ footer a:hover {
         padding: 200% 0% 10% 0%;
     }
 } 
+
