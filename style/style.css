@@ -333,3 +333,77 @@ footer a {
 footer a:hover {
     color: var(--texto);
 }
+
+/* ==========================================================
+   Responsividade
+   ========================================================== */
+@media (max-width: 56rem) {
+    main {
+        grid-template-columns: 1fr;
+        padding: 1.25rem;
+        gap: 1rem;
+    }
+
+    .cabecalho {
+        padding: 1rem 1.25rem 0;
+    }
+
+    #input-textarea {
+        min-height: 12rem;
+        font-size: 2.5rem;
+    }
+
+    #output-textarea {
+        min-height: 10rem;
+    }
+
+    .img__box {
+        padding: 1rem 0;
+    }
+
+    .img__box img {
+        width: 6rem;
+    }
+}
+
+@media (max-width: 30rem) {
+    .cabecalho__titulo {
+        font-size: 2.75rem;
+    }
+
+    .cabecalho__link img {
+        height: 2rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .input__box,
+    .output_box {
+        padding: 1rem;
+        border-radius: var(--raio-md);
+    }
+
+    #input-textarea {
+        font-size: 2.1rem;
+        padding: 1rem;
+    }
+
+    .buttons__box {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        min-height: 3rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
