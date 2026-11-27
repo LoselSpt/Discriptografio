@@ -16,6 +16,10 @@
             <img src="assets/black-hole.svg" alt="" width="40" height="40">
             <span class="cabecalho__titulo">Discriptografio</span>
         </a>
+        <button type="button" id="sound-btn" class="sound-btn" aria-pressed="false" aria-label="Ligar som ambiente">
+            <svg class="sound-btn__on" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3 10v4h4l5 5V5L7 10H3zm13.5 2A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+            <svg class="sound-btn__off" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3 10v4h4l5 5V5L7 10H3zm13.6 2 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg>
+        </button>
     </header>
 
     <main>
@@ -55,8 +59,10 @@
     <footer>
         Desenvolvido por <a href="https://github.com/LoselSpt" target="_blank" rel="noopener noreferrer">Losel</a>
 
-        <audio src="assets/timeblur.mp3" preload="auto" autoplay loop></audio>
+        <audio id="bg-audio" src="assets/timeblur.mp3" preload="none" loop></audio>
     </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
     <script src="main.js"></script>
 </body>
