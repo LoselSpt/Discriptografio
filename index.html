@@ -2,58 +2,58 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg" sizes="8x8" href="assets/eye-thin.svg  ">
-    <link rel="stylesheet" type="text/css" href="style/style.css" />
-    
-    <title>Discroptogrifio</title>
+    <meta name="description" content="Discriptografio: criptografe e descriptografe mensagens com um embaralhamento de vogais.">
+    <meta name="theme-color" content="#050001">
+    <link rel="icon" type="image/svg+xml" href="assets/eye-thin.svg">
+    <link rel="stylesheet" href="style/style.css">
 
-
-
-
+    <title>Discriptografio</title>
 </head>
 <body>
     <header class="cabecalho">
-        <a href="https://loselportifolio.vercel.app/index.html" class="cabecalho">
-        <img  src="assets/black-hole.svg"></a>
-        <p>Descriptografio</p>
+        <a href="https://loselportifolio.vercel.app/index.html" class="cabecalho__link" aria-label="Voltar ao portfólio do Losel">
+            <img src="assets/black-hole.svg" alt="" width="40" height="40">
+            <span class="cabecalho__titulo">Discriptografio</span>
+        </a>
     </header>
+
     <main>
-        <section class="input__box"> 
+        <section class="input__box" aria-labelledby="input-label">
             <form>
-                <textarea id="input-textarea" placeholder="Digite seu texto"></textarea>
+                <label id="input-label" for="input-textarea" class="sr-only">Texto para criptografar ou descriptografar</label>
+                <textarea id="input-textarea" placeholder="Digite seu texto" spellcheck="false"></textarea>
             </form>
             <div class="warning__box">
-                <img src="assets/morcegu.gif">
+                <img src="assets/morcegu.gif" alt="" width="32" height="32">
                 <p>Apenas letras minúsculas e sem acento.</p>
             </div>
             <div class="buttons__box">
-                <button id="encode-btn">Criptografar</button>
-                <button id="decode-btn">Descriptografrar</button>
+                <button type="button" id="encode-btn">Criptografar</button>
+                <button type="button" id="decode-btn">Descriptografar</button>
             </div>
         </section>
-        <section class="output_box">
+
+        <section class="output_box" aria-live="polite">
             <form>
                 <div class="img__box">
-                    <img src="assets/eye.gif">
+                    <img src="assets/eye.gif" alt="" width="160" height="160">
                     <div class="mesage__box">
-                        <h3>Nenhuma mensagem encontrada.</h3>
-                        <p>Digite um texto<br> Que <br>Você deseja criptografar ou descriptografrar.</p>
+                        <h2>Nenhuma mensagem encontrada.</h2>
+                        <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
                     </div>
                 </div>
+                <label for="output-textarea" class="sr-only">Resultado</label>
                 <textarea id="output-textarea" readonly></textarea>
             </form>
             <div class="copy__btn__box">
-                <button id="copy-btn">Copiar</button>
+                <button type="button" id="copy-btn">Copiar</button>
             </div>
         </section>
     </main>
 
-
-
-    <footer >
-        Desenvolvido por <a  href="https://github.com/LoselSpt" target="_blank">Losel</a>
+    <footer>
+        Desenvolvido por <a href="https://github.com/LoselSpt" target="_blank" rel="noopener noreferrer">Losel</a>
 
         <audio src="assets/timeblur.mp3" preload="auto" autoplay loop></audio>
     </footer>
