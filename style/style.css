@@ -42,6 +42,25 @@ body {
     fill: var(--cor-primaria);
 }
 
+.cabecalho__link {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 main {
     display: flex;
     justify-content: space-around;
@@ -158,7 +177,7 @@ button {
    
 }
 
-.mesage__box h3,
+.mesage__box h2,
 .mesage__box p {
     color: var(--cor-quarternaria); /* Adicione esta linha para definir a cor do texto */
 }
