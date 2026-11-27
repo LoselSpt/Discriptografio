@@ -335,6 +335,97 @@ footer a:hover {
 }
 
 /* ==========================================================
+   Estados e feedback
+   ========================================================== */
+.output_box.has-result .img__box {
+    display: none;
+}
+
+.output_box.has-result #output-textarea,
+.output_box.has-result #copy-btn {
+    display: block;
+    animation: surgir 260ms ease both;
+}
+
+@keyframes surgir {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
+}
+
+#input-textarea.is-shaking {
+    animation: tremer 360ms ease;
+    border-color: var(--borda-forte);
+}
+
+@keyframes tremer {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 1.5rem;
+    transform: translate(-50%, 1rem);
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--borda-forte);
+    border-radius: var(--raio-md);
+    background: var(--superficie-forte);
+    backdrop-filter: blur(8px);
+    color: var(--texto);
+    font-size: 0.9rem;
+    box-shadow: var(--brilho);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transicao), transform var(--transicao);
+}
+
+.toast.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Botão de som */
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sound-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    min-height: 0;
+    padding: 0;
+    border: 1px solid var(--borda);
+    border-radius: 50%;
+    background: var(--superficie);
+    color: var(--texto-suave);
+}
+
+.sound-btn:hover {
+    color: var(--cor-quarternaria);
+    border-color: var(--borda-forte);
+}
+
+.sound-btn .sound-btn__on,
+.sound-btn[aria-pressed="true"] .sound-btn__off {
+    display: none;
+}
+
+.sound-btn[aria-pressed="true"] .sound-btn__on {
+    display: block;
+}
+
+.sound-btn[aria-pressed="true"] {
+    color: var(--cor-quarternaria);
+    border-color: var(--borda-forte);
+}
+
+/* ==========================================================
    Responsividade
    ========================================================== */
 @media (max-width: 56rem) {
