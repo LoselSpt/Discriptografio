@@ -1,52 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Six+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Six+Caps&display=swap');
 
+/* ==========================================================
+   Design tokens
+   ========================================================== */
 :root {
-     --cor-primaria: #050001; 
+    /* Paleta original */
+    --cor-primaria: #050001;
     --cor-secundaria: #3D0000;
     --cor-terciaria: #950101;
-    --cor-quarternaria: #FF0000; 
-    --fonte1:'Inter', sans-serif;
-    --fonte2: 'Six Caps', sans-serif;
+    --cor-quarternaria: #FF0000;
+
+    /* Derivadas */
+    --superficie: rgba(61, 0, 0, 0.32);
+    --superficie-forte: rgba(5, 0, 1, 0.72);
+    --borda: rgba(255, 0, 0, 0.16);
+    --borda-forte: rgba(255, 0, 0, 0.42);
+    --texto: #ffd9d9;
+    --texto-suave: rgba(255, 217, 217, 0.62);
+    --brilho: 0 0 32px rgba(255, 0, 0, 0.22);
+
+    --fonte1: 'Inter', system-ui, sans-serif;
+    --fonte2: 'Six Caps', 'Impact', sans-serif;
+
+    --raio-lg: 1.25rem;
+    --raio-md: 0.75rem;
+    --transicao: 180ms ease;
 }
 
-* {
+/* ==========================================================
+   Base
+   ========================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
- 
 }
 
 body {
-    height: 100vh;
-    box-sizing: border-box;
-    background-color: var(--cor-secundaria);
-}
-
-.cabecalho {
-    margin:10px 10px 10px;
-    width: 6.25rem;
+    min-height: 100vh;
     display: flex;
-    cursor: pointer;
-    align-items: center;
-    font-size: 3.5rem;
-    font-family: var(--fonte2);
-    color: var(--cor-quarternaria);
-
-
-}
-
-   
-.cabecalho img {
-    margin: 0.9rem 0.9rem;
-    height: 2.5rem;
-    fill: var(--cor-primaria);
-}
-
-.cabecalho__link {
-    display: flex;
-    align-items: center;
-    color: inherit;
-    text-decoration: none;
+    flex-direction: column;
+    font-family: var(--fonte1);
+    color: var(--texto);
+    background-color: var(--cor-primaria);
+    background-image:
+        radial-gradient(ellipse 60% 50% at 15% 0%, rgba(149, 1, 1, 0.45), transparent 70%),
+        radial-gradient(ellipse 50% 60% at 100% 100%, rgba(61, 0, 0, 0.9), transparent 70%);
+    background-attachment: fixed;
 }
 
 .sr-only {
@@ -61,305 +63,273 @@ body {
     border: 0;
 }
 
-main {
-    display: flex;
-    justify-content: space-around;
-    margin: 1.25rem 0.47rem;
-    align-items: center;
-    height: 80vh;
+:focus-visible {
+    outline: 2px solid var(--cor-quarternaria);
+    outline-offset: 3px;
 }
 
+/* ==========================================================
+   Cabeçalho
+   ========================================================== */
+.cabecalho {
+    padding: 1.25rem 2rem 0;
+}
+
+.cabecalho__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--cor-quarternaria);
+    text-decoration: none;
+    transition: filter var(--transicao);
+}
+
+.cabecalho__link:hover {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6));
+}
+
+.cabecalho__link img {
+    height: 2.5rem;
+    width: auto;
+}
+
+.cabecalho__titulo {
+    font-family: var(--fonte2);
+    font-size: 3.5rem;
+    line-height: 1;
+    letter-spacing: 0.04em;
+}
+
+/* ==========================================================
+   Layout principal
+   ========================================================== */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.input__box,
+.output_box {
+    background: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-lg);
+    box-shadow: var(--brilho), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(6px);
+    padding: 1.5rem;
+}
+
+/* ==========================================================
+   Entrada
+   ========================================================== */
 .input__box {
-    margin: 1%;
-    padding: 0.5%;
-    width: 50rem;
-    font-family: var(--fonte1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input__box form {
+    flex: 1;
+    display: flex;
 }
 
 #input-textarea {
-    padding: 3%;
-    resize: none;
-    height: 20rem;
+    flex: 1;
     width: 100%;
-    font-size: 3rem;
-    border-radius: 1.25rem;
-    border: none;
-    background-color: var(--cor-secundaria);
+    min-height: 18rem;
+    padding: 1.25rem 1.5rem;
+    resize: none;
+    border: 1px solid transparent;
+    border-radius: var(--raio-md);
+    background-color: var(--superficie-forte);
     color: var(--cor-quarternaria);
     font-family: var(--fonte2);
+    font-size: 3rem;
+    line-height: 1.15;
+    letter-spacing: 0.03em;
+    transition: border-color var(--transicao), box-shadow var(--transicao);
 }
 
 #input-textarea::placeholder {
-    color: #ff000d67;
-} 
+    color: rgba(255, 0, 13, 0.4);
+}
 
 #input-textarea:focus {
     outline: none;
+    border-color: var(--borda-forte);
+    box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.12);
 }
 
 .warning__box {
     display: flex;
     align-items: center;
- 
+    gap: 0.5rem;
+    color: var(--texto-suave);
+    font-size: 0.8rem;
 }
 
-.warning__box p {
-    margin: 1vh;
-    font-size: 0.75rem;
-    color: var(--cor-quarternaria);
-    
+.warning__box img {
+    width: 2rem;
+    height: auto;
 }
 
+/* ==========================================================
+   Botões
+   ========================================================== */
 .buttons__box {
-    margin-top: 2%;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
-    font-family: var(--fonte1);
 }
 
 button {
-    padding: 0.94rem 4.38rem;
-    border-radius: 1px;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.274) 0px 2px 4px, rgba(0, 0, 0, 0.74) 0px 7px 13px -3px, rgb(0, 0, 0) 0px -3px 0px inset;
+    padding: 0.95rem 1.5rem;
+    border-radius: var(--raio-md);
     font-family: var(--fonte1);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: transform var(--transicao), box-shadow var(--transicao), background-color var(--transicao), color var(--transicao);
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(1px);
 }
 
 #encode-btn {
-    background-color: var(--cor-quarternaria);
-    border: 0.3px double var(--cor-primaria);
-    color: var(--cor-secundaria);
+    background: linear-gradient(180deg, var(--cor-quarternaria), var(--cor-terciaria));
+    border: 1px solid var(--cor-quarternaria);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.28);
+}
+
+#encode-btn:hover {
+    box-shadow: 0 8px 28px rgba(255, 0, 0, 0.45);
 }
 
 #decode-btn {
-    background-color: var(--cor-primaria);
-    border: 0.3px double var(--cor-quarternaria);
+    background: transparent;
+    border: 1px solid var(--borda-forte);
     color: var(--cor-quarternaria);
 }
 
+#decode-btn:hover {
+    background: rgba(255, 0, 0, 0.08);
+    border-color: var(--cor-quarternaria);
+}
+
+/* ==========================================================
+   Saída
+   ========================================================== */
 .output_box {
-    background-color: var(--cor-primaria);
-    border-radius: 4px;
-    padding: 1%;
-    width: 20rem;
-    box-shadow: rgba(0, 0, 0, 0.863) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza verticalmente */
-    font-family: var(--fonte1);
+    gap: 1rem;
+    background: var(--superficie-forte);
+}
+
+.output_box form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .img__box {
-    margin: 4.38rem 0rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-}
-
-.img__box eye.gif {
-    height: 1rem;
-    margin-bottom: 1rem; /* Adicione um espaçamento inferior para separar a imagem do texto */
-}
-
-.mesage__box {
-    flex-grow: 1;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
     text-align: center;
-    width: 100%; /* Garante que a largura ocupe 100% do container */
-    overflow: hidden;
-    font-family: var(--fonte1);
-   
 }
 
-.mesage__box h2,
+.img__box img {
+    width: 10rem;
+    max-width: 70%;
+    height: auto;
+}
+
+.mesage__box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mesage__box h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--cor-quarternaria);
+}
+
 .mesage__box p {
-    color: var(--cor-quarternaria); /* Adicione esta linha para definir a cor do texto */
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--texto-suave);
 }
 
 #output-textarea {
     display: none;
-    padding: 3%;
+    flex: 1;
+    width: 100%;
+    min-height: 18rem;
+    padding: 1rem;
     resize: none;
-    width: 18rem;
-    height: 31.80rem;
-    font-size: 1.5rem;
-    border-radius: 0.94rem;
     border: none;
-    background-color: var(--cor-primaria);
-    color: var(--cor-quarternaria);
+    border-radius: var(--raio-md);
+    background-color: transparent;
+    color: var(--texto);
     font-family: var(--fonte1);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    word-break: break-word;
 }
 
 #output-textarea:focus {
     outline: none;
 }
 
-.copy__btn__box {
-    text-align: center;
-    margin-top: 1.13rem;
-    font-family: var(--fonte1);
-}
-
 #copy-btn {
     display: none;
-    background-color: var(--cor-primaria);
-    border: 3px double var(--cor-quarternaria);
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--borda-forte);
     color: var(--cor-quarternaria);
-    width: 95%;
-    box-sizing: border-box; /* Evita que a largura do botão afete o layout */
-    padding: 0.75rem 2rem;
-    border-radius: 0.2rem;
-    cursor: help;
-    font-size: 1rem;
-    font-family: var(--fonte1);
-    
 }
 
+#copy-btn:hover {
+    background: var(--cor-quarternaria);
+    color: var(--cor-primaria);
+}
 
+/* ==========================================================
+   Rodapé
+   ========================================================== */
 footer {
+    padding: 1.5rem;
     text-align: center;
-    font-size: 0.75rem;
-    padding: 12px;
-    border: 10px;
-    margin: 2%;
-    color: var(--cor-quarternaria);
-    gap: 1vh;
+    font-size: 0.8rem;
+    color: var(--texto-suave);
 }
 
 footer a {
-   text-decoration: none;
     color: var(--cor-quarternaria);
-    font-weight: bold;
-   
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--transicao);
 }
 
 footer a:hover {
-    color:#000000;
+    color: var(--texto);
 }
-
-@media (max-width: 76.37rem) {
-    main {
-        flex-direction: column;
-        height: 100vh;
-        gap: 1.25rem;
-    }
-
-    .input__box {
-        padding: 3%;
-        width: 40rem;
-    }
-
-    .output_box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 40.63rem;
-    }
-
-    .img__box {
-        margin: 0px;
-    }
-
-    .mesage__box{
-        display: flex;
-        flex-direction: column;
-        padding: 0.19rem;
-        width: 31.25rem;
-        gap: 0.63rem;
-    }
-
-    #output-textarea {
-        padding: 0.19rem;
-        width: 38.75rem;
-        height: 30vh;
-    }
-
-    #copy-btn {
-        width: 34.38rem
-    }
-
-    .img__box img {
-        display: none;
-    }
-
-    footer {
-        position: relative;
-        padding: 3.38rem 0rem 2rem 0rem;
-    }
-}
-
-@media (max-width: 45.87rem) {
-    main {
-        gap: 0rem;
-    }
-
-    .input__box {
-        margin-top: -2.75rem;
-        width: 20rem;
-    }
-
-    .buttons__box {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .output_box {
-        width: 18.13rem;
-        padding: 1.25rem;
-    }
-
-    .mesage__box{
-        width: 17.5rem;
-    }
-
-    #output-textarea {
-        width: 18.75rem;
-    }
-
-    #copy-btn {
-        width: 18.75rem;
-    }
-
-    footer {
-        position: relative;
-        padding: 7% 0% 10% 0%;
-    }
-} 
-
-@media (max-width: 42.81rem) {
-    main {
-        gap: 4rem;
-        height: 50vh;
-    }
-
-    .input__box {
-        margin-top: 30.25rem;
-        width: 20rem;
-    }
-
-    footer {
-        position: relative;
-        padding: 100% 0% 10% 0%;
-    }
-} 
-
-@media (max-width: 30.56rem) {
-    .input__box {
-        margin-top: 35.25rem;
-        width: 20rem;
-    }
-
-    footer {
-        position: relative;
-        padding: 200% 0% 10% 0%;
-    }
-} 
-
-
